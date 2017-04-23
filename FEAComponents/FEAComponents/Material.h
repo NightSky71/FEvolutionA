@@ -16,8 +16,23 @@ public:
 	// Poisson's Ratio
 	double poisson;
 
-	// Cross_sectional Area
-	double area;
+	// Useage Flags
+	long useageFlags;
 
+	Material();
+	Material(double E, double G = 0.0, double poisson = 0.0);
 
+private:
+	bool initialised();
+
+// CONSTRUCTORS & FUNCTIONS
+public:
+	Material();
+	Material(double E, double G = 0.0, double poisson = 0.0);
+
+	~Material();
+
+private:
+	void AssignUseageFlag(double a, MATERIAL_USE_FLAGS flag);
+	void AssignUseageFlags();
 };

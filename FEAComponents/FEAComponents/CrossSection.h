@@ -3,11 +3,11 @@
 */
 
 #include "stdafx.h"
+#include "Material.h"
 
 /*
 	Base CrossSection
 */
-
 class CrossSection{
 	
 public:
@@ -20,12 +20,36 @@ public:
 	// Maximum distance from the centeroid
 	double maxX, maxY;
 
-/// CONSTRUCTORS & FUNCTIONS
 protected:
 
-	virtual double CalculateArea();
+	Material matertial;
 
+	unsigned int totalDimensions;
+
+	bool initialised;
+
+/// CONSTRUCTORS & FUNCTIONS
+public:
+
+	CrossSection();
+
+	// Area
+	virtual double GetArea() { return 0.0; };
+
+	// Dimensions
+	virtual bool SetDimensions(double dim[]) { return true; };
+
+protected:
+
+	// Area
+	virtual double CalculateArea();
 };
+
+
+
+
+
+
 
 class RectangularSection : public CrossSection
 {
@@ -41,8 +65,21 @@ public:
 		+----->x
 	*/
 
-	double w, h;
+	double width, height;
 
+/// CONSTRUCTORS & FUNCTIONS
+public:
 
+	RectangularSection();
+	RectangularSection(double width, double height);
+	RectangularSection(double width, double height, Material matertial);
+
+	double GetArea();
+
+	bool SetDimensions(double dim[]);
+
+protected:
+
+	double CalculateArea();
 
 };
