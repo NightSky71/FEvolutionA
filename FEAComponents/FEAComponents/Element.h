@@ -16,7 +16,10 @@
 class Element3D{
 /// VARIABLES
 private:
+	// Element ID
+	static unsigned int total;
 
+	// Node ID's
 	unsigned int toNode;
 	unsigned int fromNode;
 
@@ -32,6 +35,9 @@ public:
 	virtual void SetNodeVectors(Vector3 fromNodeVector, Vector3 toNodeVector);
 	virtual void print();
 
+private:
+
+	virtual void CreateStiffnessMatrix();
 };
 
 /*
