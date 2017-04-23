@@ -1,0 +1,11 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	UPDATE LOG	|||  
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++ Added feature		- Removed Feature		* Fixed bug		! Unsolved Problem
+
+Version 0.1.1
+! There is currently no way of identifying nodes that are static/force/dynamic
+! Stress calculations sign will need to be altered depending on element rotation
+! Structure Generator needs a way of storing the dynamic nodes and elements
+- Removed a lot of code in main
