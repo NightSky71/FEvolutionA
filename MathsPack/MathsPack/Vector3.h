@@ -1,11 +1,16 @@
-#pragma once
-
 #define VECTOR3
-#include <cmath>
+#include "stdafx.h"
 
-// This class handles the vector maths and storage of planetary positions
+// This class handles the vector maths
 
-class Vector3
+#ifdef MATHPACK_EXPORTS
+#define MATHPACK_API __declspec(dllexport)
+#else
+#define MATHPACK_API __declspec(dllimport)
+#endif
+
+
+class MATHPACK_API Vector3
 {
 public:
 

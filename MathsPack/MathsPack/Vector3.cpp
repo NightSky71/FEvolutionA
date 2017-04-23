@@ -38,7 +38,7 @@ Vector3 Vector3::operator-=(const Vector3& vector)
 
 double Vector3::Modulus()
 {
-	return sqrt(pow(Vector3::X, 2.0f) + pow(Vector3::Y, 2.0f) + pow(Vector3::Z, 2.0f));
+	return sqrt((Vector3::X * Vector3::X) + (Vector3::Y * Vector3::Y) + (Vector3::Z * Vector3::Z));
 }
 
 Vector3 Vector3::CrossProduct(Vector3 vector)
