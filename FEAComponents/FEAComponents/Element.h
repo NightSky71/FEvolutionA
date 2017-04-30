@@ -15,16 +15,20 @@
 */
 class Element3D{
 /// VARIABLES
-private:
+protected:
 	// Element ID
 	static unsigned int total;
 
 	// Node ID's
 	unsigned int toNode;
 	unsigned int fromNode;
+	double length;
 
 	// The local stiffness matrix (Using Global Coords)
 	double stiffnessMatrix[2 * TOTAL_DOF_3D][2 * TOTAL_DOF_3D];
+
+	// Useful variables
+	double lambda[TOTAL_DOF_3D][TOTAL_DOF_3D];
 
 /// CONSTRUCTOR & FUNCTIONS
 public:
@@ -35,7 +39,7 @@ public:
 	virtual void SetNodeVectors(Vector3 fromNodeVector, Vector3 toNodeVector);
 	virtual void print();
 
-private:
+protected:
 
 	virtual void CreateStiffnessMatrix();
 };
@@ -50,4 +54,5 @@ public:
 	FrameElement3D();
 
 	void SetNodeVectors(Vector3 fromNodeVector, Vector3 toNodeVector);
+	void CreateStiffnessMatrix();
 };

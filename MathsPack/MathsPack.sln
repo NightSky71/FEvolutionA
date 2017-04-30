@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathsPack", "MathsPack\MathsPack.vcxproj", "{671EC7EA-83B7-48ED-AC35-B8D334E496CE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathsTests", "MathsTests\MathsTests.vcxproj", "{99063BF9-BA50-467D-A740-F7035EDF380F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{671EC7EA-83B7-48ED-AC35-B8D334E496CE}.Debug|Win32.Build.0 = Debug|Win32
 		{671EC7EA-83B7-48ED-AC35-B8D334E496CE}.Release|Win32.ActiveCfg = Release|Win32
 		{671EC7EA-83B7-48ED-AC35-B8D334E496CE}.Release|Win32.Build.0 = Release|Win32
+		{99063BF9-BA50-467D-A740-F7035EDF380F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{99063BF9-BA50-467D-A740-F7035EDF380F}.Debug|Win32.Build.0 = Debug|Win32
+		{99063BF9-BA50-467D-A740-F7035EDF380F}.Release|Win32.ActiveCfg = Release|Win32
+		{99063BF9-BA50-467D-A740-F7035EDF380F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
