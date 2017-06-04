@@ -7,12 +7,9 @@
 
 void FrameElement3D::SetNodeVectors(Node* fromNode, Node* toNode){
 
-	this->fromNode = fromNode;
-	this->toNode = toNode;
+	Element3D::SetNodeVectors(fromNode, toNode);
 
-	length = (fromNode->pos - toNode->pos).Modulus();
-
-	CreateStiffnessMatrix(fromNode->pos, toNode->pos);
+	CreateStiffnessMatrix(fromNode->getPos(), toNode->getPos());
 
 }
 

@@ -11,13 +11,15 @@
 
 #include "CrossSection.h"
 #include "Node.h"
+#include "Misc.h"
+
 
 /*
 	Base Element class
 
 	This only covers that connect between two nodes exclusively
 */
-class Element3D{
+class Element3D : public Element{
 /// VARIABLES
 protected:
 	// Element ID
@@ -26,6 +28,7 @@ protected:
 	// Node Pointers
 	Node* toNode;
 	Node* fromNode;
+	bool m_bNodes;
 
 	// Element 
 	double length;
@@ -45,14 +48,16 @@ protected:
 public:
 
 	Element3D();
-	Element3D(unsigned int fromNode, unsigned int toNode);
+	Element3D(CrossSection* crossSection);
+	Element3D(CrossSection* crossSection, Node* fromNode, Node* toNode);
 
-	virtual void SetNodeVectors(Node* fromNode, Node* toNode);
+	void SetNodeVectors(Node* fromNode, Node* toNode);
 	virtual void print();
 
 protected:
 
 	virtual void CreateStiffnessMatrix(Vector3 fromNodeVector, Vector3 toNodeVector);
+	void AssignPtrToNodes();
 };
 
 /*
