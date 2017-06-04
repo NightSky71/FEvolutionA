@@ -71,7 +71,11 @@ void MatrixMathsTests_Multiplication(){
 	matB.mData[1][2] = 1;
 	matB.mData[1][3] = 2;
 
-	Matrix2 matC = matA * matB;
+	Matrix2 matC;
+
+	for (int i = 0; i < 1; i++){
+		 matC = matA * matB;
+	}
 	
 	matC.print();
 
@@ -80,6 +84,39 @@ void MatrixMathsTests_Multiplication(){
 	//matA->destroy();
 }
 
+void MatrixMathsTests_GuassianElimination(){
+	
+	std::cout <<
+		"Matrix Multiplication Test\n\n"
+		"| 9  3  4 | 7 |\n"
+		"| 4  3  4 | 8 |\n"
+		"| 1  1  1 | 3 | \n"
+		<< std::endl;
+
+	Matrix2 matA = Matrix2(3, 3);
+
+	matA.mData[0][0] = 1;
+	matA.mData[0][1] = 1;
+	matA.mData[0][2] = 1;
+	matA.mData[1][0] = 1;
+	matA.mData[1][1] = -2;
+	matA.mData[1][2] = 2;
+	matA.mData[2][0] = 1;
+	matA.mData[2][1] = 2;
+	matA.mData[2][2] = -1;
+
+
+	std::vector<double> vecA;
+	vecA.push_back(0);
+	vecA.push_back(4);
+	vecA.push_back(2);
+
+	std::vector<double> vecB = matA.GuassianElimination(vecA);
+	
+	for (int i = 0; i < 3; i++){
+		std::cout << vecB[i] << std::endl;
+	}
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -107,6 +144,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	MatrixMathsTests_Addition();
 
 	MatrixMathsTests_Multiplication();
+
+	MatrixMathsTests_GuassianElimination();
 
 	std::cin.ignore();
 	return 0;

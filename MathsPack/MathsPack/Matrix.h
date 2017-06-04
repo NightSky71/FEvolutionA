@@ -27,6 +27,7 @@ public:
 	MATHPACK_API Matrix2(std::size_t size);
 	MATHPACK_API Matrix2(std::size_t rows, std::size_t cols);
 	MATHPACK_API Matrix2(const double **lhs, const std::size_t rows, const std::size_t cols);
+	MATHPACK_API Matrix2(const Matrix2& matrix);
 
 	MATHPACK_API ~Matrix2();
 
@@ -61,7 +62,12 @@ public:
 		} return 0.0;
 	}
 
+	MATHPACK_API bool set(std::size_t row, std::size_t col, const Matrix2& matrix);
+
+	MATHPACK_API std::vector <double> GuassianElimination(std::vector <double> rhs);
 	MATHPACK_API Matrix2 inverse();
+	MATHPACK_API void Zero();
+
 	MATHPACK_API void print();
 };
 

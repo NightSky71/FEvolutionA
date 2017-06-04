@@ -19,9 +19,6 @@ public:
 	// Useage Flags
 	long useageFlags;
 
-	Material();
-	Material(double E, double G = 0.0, double poisson = 0.0);
-
 private:
 	bool initialised();
 

@@ -7,6 +7,10 @@
 
 #include "stdafx.h"
 #include <MathsPack\Vector3.h>
+#include <MathsPack\Matrix.h>
+
+#include "CrossSection.h"
+#include "Node.h"
 
 /*
 	Base Element class
@@ -19,16 +23,23 @@ protected:
 	// Element ID
 	static unsigned int total;
 
-	// Node ID's
-	unsigned int toNode;
-	unsigned int fromNode;
+	// Node Pointers
+	Node* toNode;
+	Node* fromNode;
+
+	// Element 
 	double length;
 
+	// Indexs
+
+	// CrossSection
+	CrossSection crossSection;
+
 	// The local stiffness matrix (Using Global Coords)
-	double stiffnessMatrix[2 * TOTAL_DOF_3D][2 * TOTAL_DOF_3D];
+	Matrix2 stiffnessMatrix = Matrix2(2 * TOTAL_DOF_3D , 2 * TOTAL_DOF_3D);
 
 	// Useful variables
-	double lambda[TOTAL_DOF_3D][TOTAL_DOF_3D];
+	//double lambda[TOTAL_DOF_3D][TOTAL_DOF_3D];
 
 /// CONSTRUCTOR & FUNCTIONS
 public:
@@ -36,12 +47,12 @@ public:
 	Element3D();
 	Element3D(unsigned int fromNode, unsigned int toNode);
 
-	virtual void SetNodeVectors(Vector3 fromNodeVector, Vector3 toNodeVector);
+	virtual void SetNodeVectors(Node* fromNode, Node* toNode);
 	virtual void print();
 
 protected:
 
-	virtual void CreateStiffnessMatrix();
+	virtual void CreateStiffnessMatrix(Vector3 fromNodeVector, Vector3 toNodeVector);
 };
 
 /*
@@ -53,6 +64,6 @@ public:
 
 	FrameElement3D();
 
-	void SetNodeVectors(Vector3 fromNodeVector, Vector3 toNodeVector);
-	void CreateStiffnessMatrix();
+	void SetNodeVectors(Node* fromNode, Node* toNode);
+	void CreateStiffnessMatrix(Vector3 fromNodeVector, Vector3 toNodeVector);
 };

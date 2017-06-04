@@ -12,7 +12,7 @@ class CrossSection{
 	
 public:
 	// Second Moment of Area
-	double Ixx, Iyy;
+	double Ixx, Iyy, J;
 
 	// Area
 	double area;
@@ -20,9 +20,9 @@ public:
 	// Maximum distance from the centeroid
 	double maxX, maxY;
 
-protected:
-
 	Material matertial;
+
+protected:
 
 	unsigned int totalDimensions;
 
